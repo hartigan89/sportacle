@@ -67,7 +67,6 @@ INSTALLED_APPS = [
     'ranker',
     'mysportacle',
     'leaderboard',
-    'pinnacle',
 ]
 
 MIDDLEWARE_CLASSES = [
