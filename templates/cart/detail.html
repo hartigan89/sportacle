@@ -1,0 +1,62 @@
+{% extends "base/base.html" %}
+{% block title %}Sportacle{% endblock %}
+{% load static %}
+
+{% block content %}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{% url "picks:pick_create" %}" method="post" class="text-right">
+                {% csrf_token %}
+                <a href="{% url "gamelist" %}" class="btn btn-plain round">Continue picking</a>
+                <input type="submit" class="btn btn-primary round" value="Submit picks">
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        <div class="col-md-12">
+            {% for item in cart %}
+                {% with game=item.game %}
+                    <span class="label label-default">{{ game.sport }}</span>
+                    <span class="label label-default">{{ game.gameTime }}</span>
+                    <span class="label label-default">{{ game.visitor }} @ {{ game.home }}</span>
+                    <table class="table games">
+                        <thead>
+                            <tr>
+                                <th>{{ game.visitor }}</th>
+                                <th>{{ game.home }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ game.visitorOdds }}
+                                    {% if item.selection == "V" %}
+                                         <img src="{% static "detail/img/transparent-green-checkmark-hi.png"%}" style="width:24px;">
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ game.homeOdds }}
+                                    {% if item.selection == "H" %}
+                                         <img src="{% static "detail/img/transparent-green-checkmark-hi.png"%}" style="width:24px;">
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a href="{% url "cart:cart_remove" game.id %}" class="btn btn-remove">Remove game</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "base/base.html" %}
+{% block title %}Sportacle{% endblock %}
+
+{% block content %}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Leaderboard</h3></div>
+                    <div class="panel-body">
+                        <div>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Last Week</a></li>
+                                <li><a href="#tab-2" role="tab" data-toggle="tab">Last Month</a></li>
+                                <li><a href="#tab-3" role="tab" data-toggle="tab">All Time</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                    {% if lastWeek %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Position</th>
+                                                        <th>Username</th>
+                                                        <th>Games Picked</th>
+                                                        <th>Games Won</th>
+                                                        <th>Win %</th>
+                                                        <th>Expected Win %</th>
+                                                        <th>Edge</th>
+                                                        <th>Rank</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for leader in lastWeek %}
+                                                        <tr>
+                                                            <td>{{ forloop.counter }}</td>
+                                                            <td><a href="{% url "profile" leader.user.username %}">{{ leader.user.username }}</a></td>
+                                                            <td>{{ leader.numGames }}</td>
+                                                            <td>{{ leader.gamesWon }}</td>
+                                                            <td>{{ leader.getWinRate|floatformat }}%</td>
+                                                            <td>{{ leader.getExpRate|floatformat }}%</td>
+                                                            <td>{{ leader.formatEdge|floatformat }}%</td>
+                                                            <td>{{ leader.getRank }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No leaders to show</p>
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                    {% if lastMonth %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Position</th>
+                                                        <th>Username</th>
+                                                        <th>Games Picked</th>
+                                                        <th>Games Won</th>
+                                                        <th>Win %</th>
+                                                        <th>Expected Win %</th>
+                                                        <th>Edge</th>
+                                                        <th>Rank</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for leader in lastMonth %}
+                                                        <tr>
+                                                            <td>{{ forloop.counter }}</td>
+                                                            <td><a href="{% url "profile" leader.user.username %}">{{ leader.user.username }}</a></td>
+                                                            <td>{{ leader.numGames }}</td>
+                                                            <td>{{ leader.gamesWon }}</td>
+                                                            <td>{{ leader.getWinRate|floatformat }}%</td>
+                                                            <td>{{ leader.getExpRate|floatformat }}%</td>
+                                                            <td>{{ leader.formatEdge|floatformat }}%</td>
+                                                            <td>{{ leader.getRank }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No leaders to show</p>
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-3">
+                                    {% if allTime %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Position</th>
+                                                        <th>Username</th>
+                                                        <th>Games Picked</th>
+                                                        <th>Games Won</th>
+                                                        <th>Win %</th>
+                                                        <th>Expected Win %</th>
+                                                        <th>Edge</th>
+                                                        <th>Rank</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for leader in allTime %}
+                                                        <tr>
+                                                            <td>{{ forloop.counter }}</td>
+                                                            <td><a href="{% url "profile" leader.user.username %}">{{ leader.user.username }}</a></td>
+                                                            <td>{{ leader.numGames }}</td>
+                                                            <td>{{ leader.gamesWon }}</td>
+                                                            <td>{{ leader.getWinRate|floatformat }}%</td>
+                                                            <td>{{ leader.getExpRate|floatformat }}%</td>
+                                                            <td>{{ leader.formatEdge|floatformat }}%</td>
+                                                            <td>{{ leader.getRank }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No leaders to show</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

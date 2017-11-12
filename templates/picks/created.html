@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% block title %}Sportacle{% endblock %}
+
+{% block content %}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Thank you</h1>
+                <p>Your picks have been placed successfully.</p>
+                <p class="text-right">
+                    <a href="{% url "gamelist" %}" class="button">Continue picking</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,114 @@
+body {
+    padding-top: 80px;
+  }
+
+a {
+    color:#000000;
+}
+
+a:hover {
+    color:#07ac0b;
+}
+
+.btn {
+    padding: 8px 24px;
+    border: 0 none;
+    font-weight: 700;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background:#07ac0b;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #3aa33d;
+    color: #ffffff;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #3aa33d;
+    box-shadow: none;
+}
+
+.btn-remove {
+    background:#8b8f96;
+    color: #ffffff;
+}
+ 
+.btn-remove:hover, .btn-remove:focus, .btn-remove:active, .btn-remove.active, .open > .dropdown-toggle.btn-remove {
+    background: #ff0000;
+    color: #ffffff;
+}
+ 
+.btn-remove:active, .btn-remove.active {
+    background: #ff0000;
+    box-shadow: none;
+}
+
+.btn-plain {
+    background:#8b8f96;
+    color: #ffffff;
+}
+ 
+.btn-plain:hover, .btn-plain:focus, .btn-plain:active, .btn-plain.active, .open > .dropdown-toggle.btn-plain {
+    background: #939496;
+    color: #ffffff;
+}
+ 
+.btn-plain:active, .btn-plain.active {
+    background: #939496;
+    box-shadow: none;
+}
+
+.btn.sharp {
+  border-radius:0;
+}
+
+.btn.round {
+	border-radius: 24px;
+}
+
+table th, table td {
+    text-align:center;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+thead th {
+    text-align:center;
+    font-weight:bold;
+}
+
+table.games {
+    table-layout: fixed;
+}
+
+#sidebar ul{
+    margin:0;
+    padding:0;
+}
+
+#sidebar ul li {
+    margin:0;
+    list-style:none;
+    padding:10px 14px;
+}
+
+#sidebar ul li a {
+    display:block;
+}
+
+#sidebar ul li.selected {
+    background:#07ac0b;
+    border-radius:4px;
+}
+
+#sidebar ul li.selected a {
+    color:#fff;
+}

@@ -1,0 +1,30 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Pick
+from cart.cart import Cart
+from django.contrib.auth.models import User
+from gamelist.models import Game
+
+def pick_create(request):
+    if not request.user.is_authenticated():
+        return redirect('/login/')
+    
+    cart = Cart(request)
+    if request.method == 'POST':
+        for item in cart:
+            if Pick.objects.filter(user=request.user, game=item['game']):
+                Pick.objects.filter(user=request.user, game=item['game']).update(selection=item['selection'],
+                                         odds=item['selectionOdds'],
+                                         probability=item['selectionProb'])
+            else:
+                Pick.objects.create(user=request.user,
+                                         game=item['game'],
+                                         selection=item['selection'],
+                                         odds=item['selectionOdds'],
+                                         probability=item['selectionProb']
+                                         )
+                                         
+        # clear the cart
+        cart.clear()
+        
+        return render(request, 'picks/created.html')
+            

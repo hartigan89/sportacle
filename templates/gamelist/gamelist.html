@@ -1,0 +1,56 @@
+{% extends "base/base.html" %}
+{% block title %}Sportacle{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" id="sidebar">
+            <ul>
+                <li {% if not sport %}class="selected"{% endif %}>
+                    <a href="{% url "gamelist" %}">All</a>
+                </li>
+                
+                {% for s in sports %}
+                    <li {% if sport.slug == s.slug %}class="selected"{% endif %}>
+                        <a href="{{ s.get_absolute_url }}">{{ s.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-9">
+            {% for game in games %}
+                <span class="label label-default">{{ game.sport }}</span>
+                <span class="label label-default">{{ game.gameTime }}</span>
+                <span class="label label-default">{{ game.visitor }} @ {{ game.home }}</span>
+                <div class="table-responsive">
+                    <table class="table games">
+                        <thead>
+                            <tr>
+                                <th>{{ game.visitor }}</th>
+                                <th>{{ game.home }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <form action="{% url "cart:cart_add" game.id %}" method="post">
+                                    {% csrf_token %}
+                                    <td>
+                                        <input type="submit" name="visitor" value={{ game.visitorOdds }} class="btn btn-primary">
+                                    </td>
+                                    <td>
+                                        <input type="submit" name="home" value={{ game.homeOdds }} class="btn btn-primary">
+                                    </td>
+                                </form>
+                            </tr>
+                            <tr></tr>
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

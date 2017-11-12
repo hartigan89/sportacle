@@ -1,0 +1,251 @@
+{% extends "base/base.html" %}
+{% block title %}Sportacle{% endblock %}
+
+{% block content %}
+<div>
+    <div class="container">
+        <ul class="list-inline">
+            <li><h3>{{ user.username }}</h3></li>
+            {% if not isOwn %}
+                <li>
+                    {% if isFollowing %}
+                        <form action="{% url "profile_unfollow" user.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Unfollow" class="btn btn-primary round">
+                        </form>
+                    {% else %}
+                        <form action="{% url "profile_follow" user.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Follow" class="btn btn-primary round">
+                        </form>
+                    {% endif %}
+                </li>
+            {% endif %}
+        </ul>
+        <ul class="list-inline">
+            <li><a href="{% url "list_followers" user.username %}">{{ numFollowers }} followers</a></li>
+            <li><a href="{% url "list_following" user.username %}">{{ numFollowing }} following</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Rank: {{ leader.getRank }}</h3></div>
+                    <div class="panel-body"><strong>Progress to next rank</strong>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Key Stats</h3></div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Games Picked</th>
+                                        <th>Games Won</th>
+                                        <th>Win %</th>
+                                        <th>Expected Win %</th>
+                                        <th>Edge</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ leader.numGames }}</td>
+                                        <td>{{ leader.gamesWon }}</td>
+                                        <td>{{ leader.getWinRate|floatformat }}%</td>
+                                        <td>{{ leader.getExpRate|floatformat }}%</td>
+                                        <td>{{ leader.formatEdge|floatformat }}%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pick History</h3></div>
+                    <div class="panel-body">
+                        <div>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Current</a></li>
+                                <li><a href="#tab-2" role="tab" data-toggle="tab">Last Week</a></li>
+                                <li><a href="#tab-3" role="tab" data-toggle="tab">Last Month</a></li>
+                                <li><a href="#tab-4" role="tab" data-toggle="tab">All Time</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                    {% if current %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Game Date</th>
+                                                        <th>Visitor</th>
+                                                        <th>Home</th>
+                                                        <th>Selection</th>
+                                                        <th>Outcome</th>
+                                                        <th>Win/Lose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for pick in current %}
+                                                        <tr>
+                                                            <td>{{ pick.game.gameTime }}</td>
+                                                            <td>{{ pick.game.visitor }}</td>
+                                                            <td>{{ pick.game.home }}</td>
+                                                            <td>{{ pick.selection }}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No picks to show</p>
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                    {% if lastWeek %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Game Date</th>
+                                                        <th>Visitor</th>
+                                                        <th>Home</th>
+                                                        <th>Selection</th>
+                                                        <th>Outcome</th>
+                                                        <th>Win/Lose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for pick in lastWeek %}
+                                                        <tr>
+                                                            <td>{{ pick.game.gameTime }}</td>
+                                                            <td>{{ pick.game.visitor }}</td>
+                                                            <td>{{ pick.game.home }}</td>
+                                                            <td>{{ pick.selection }}</td>
+                                                            <td>{{ pick.game.outcome }}</td>
+                                                            <td>
+                                                                {% if pick.selection == pick.game.outcome %}
+                                                                    Win
+                                                                {% else %}
+                                                                    Lose
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No picks to show</p>
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-3">
+                                    {% if lastMonth %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Game Date</th>
+                                                        <th>Visitor</th>
+                                                        <th>Home</th>
+                                                        <th>Selection</th>
+                                                        <th>Outcome</th>
+                                                        <th>Win/Lose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for pick in lastMonth %}
+                                                        <tr>
+                                                            <td>{{ pick.game.gameTime }}</td>
+                                                            <td>{{ pick.game.visitor }}</td>
+                                                            <td>{{ pick.game.home }}</td>
+                                                            <td>{{ pick.selection }}</td>
+                                                            <td>{{ pick.game.outcome }}</td>
+                                                            <td>
+                                                                {% if pick.selection == pick.game.outcome %}
+                                                                    Win
+                                                                {% else %}
+                                                                    Lose
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No picks to show</p>
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="tab-4">
+                                    {% if allTime %}
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Game Date</th>
+                                                        <th>Visitor</th>
+                                                        <th>Home</th>
+                                                        <th>Selection</th>
+                                                        <th>Outcome</th>
+                                                        <th>Win/Lose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for pick in allTime %}
+                                                        <tr>
+                                                            <td>{{ pick.game.gameTime }}</td>
+                                                            <td>{{ pick.game.visitor }}</td>
+                                                            <td>{{ pick.game.home }}</td>
+                                                            <td>{{ pick.selection }}</td>
+                                                            <td>{{ pick.game.outcome }}</td>
+                                                            <td>
+                                                                {% if pick.selection == pick.game.outcome %}
+                                                                    Win
+                                                                {% else %}
+                                                                    Lose
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p>No picks to show</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
