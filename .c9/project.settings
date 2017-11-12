@@ -75,8 +75,12 @@
             "json()": {
                 "Django": {
                     "command": "",
-                    "debug": true,
+                    "debug": false,
                     "default": true,
+                    "env": {
+                        "ENV_ROLE": "c9",
+                        "SPORTACLE_DB_PASS": "Li12am34"
+                    },
                     "name": "Django",
                     "runner": "Django"
                 }

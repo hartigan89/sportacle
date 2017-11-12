@@ -37,13 +37,18 @@ MEDIA_DIR = os.path.join(BASE_DIR,"media")
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env_variable('SECRET_KEY')
+SECRET_KEY = '&_-)4mw9u3w3a#yc+z!9c$5t+3a&85)p)^*&k&4hd_q*7%30!9'
 
 #SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 SPORTACLE_DB_PASS = False
 if ENV_ROLE == 'development':
+    DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
+    SPORTACLE_DB_PASS = get_env_variable('SPORTACLE_DB_PASS')
+    
+if ENV_ROLE == 'c9':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
     SPORTACLE_DB_PASS = get_env_variable('SPORTACLE_DB_PASS')
@@ -171,3 +176,11 @@ CART_SESSION_ID ='cart'
 if ENV_ROLE == 'production':
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
+    
+    # Parse database configuration from $DATABASE_URL
+if ENV_ROLE == 'c9':
+    DATABASES['default']['NAME'] = 'sportacleDB'
+    DATABASES['default']['HOST'] = 'localhost'
+    DATABASES['default']['USER'] = 'postgres'
+    DATABASES['default']['PASSWORD'] = SPORTACLE_DB_PASS
+    DATABASES['default']['PORT'] = ''
