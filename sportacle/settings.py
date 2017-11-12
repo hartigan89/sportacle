@@ -27,7 +27,7 @@ SECRET_KEY = '&_-)4mw9u3w3a#yc+z!9c$5t+3a&85)p)^*&k&4hd_q*7%30!9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -141,3 +141,8 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'gamelist'
 
 CART_SESSION_ID ='cart'
+
+# Parse database configuration from $DATABASE_URL
+if ENV_ROLE == 'production':
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
