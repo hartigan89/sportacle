@@ -37,20 +37,17 @@ MEDIA_DIR = os.path.join(BASE_DIR,"media")
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&_-)4mw9u3w3a#yc+z!9c$5t+3a&85)p)^*&k&4hd_q*7%30!9'
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 #SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 SPORTACLE_DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
     SPORTACLE_DB_PASS = get_env_variable('SPORTACLE_DB_PASS')
     
 if ENV_ROLE == 'c9':
     DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
     SPORTACLE_DB_PASS = get_env_variable('SPORTACLE_DB_PASS')
 
 ALLOWED_HOSTS = ['*']
@@ -94,6 +91,7 @@ TEMPLATES = [
         'DIRS': [TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

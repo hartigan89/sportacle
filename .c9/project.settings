@@ -79,6 +79,7 @@
                     "default": true,
                     "env": {
                         "ENV_ROLE": "c9",
+                        "SECRET_KEY": "\"&_-)4mw9u3w3a#yc+z!9c$5t+3a&85)p)^*&k&4hd_q*7%30!9\"",
                         "SPORTACLE_DB_PASS": "Li12am34"
                     },
                     "name": "Django",
