@@ -94,7 +94,7 @@ div.iphone-mockup {
 
 section.features {
   background-color:#369;
-  padding:40px 0;
+  padding:0px 0;
   color:#fff;
 }
 
@@ -103,7 +103,7 @@ section.features {
 }
 
 .features .icon-features {
-  margin-top:15px;
+  margin-top: 0px;
 }
 
 .testimonials blockquote {

@@ -12,13 +12,15 @@
     <link href="{% static "base/css/Navigation-with-Button1.css" %}" rel="stylesheet">
     <link href="{% static "base/css/styles.css" %}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic">
+    <link rel="stylesheet" href="{% static "faq/css/FAQ-Frequentlly-Asked-Questions.css" %}">
+    <link rel="stylesheet" href="{% static "faq/css/FAQ-Frequentlly-Asked-Questions1.css" %}">
 </head>
 
 <body>
     <div>
         <nav class="navbar navbar-fixed-top navigation-clean-button">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="{% url "landing" %}" style="color:rgb(34,162,12);font-size:30px;">Sportacle </a>
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="{% url "landing" %}" style="color:rgb(34,162,12);font-size:30px;font-family:Source Sans Pro;">Sportacle </a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
@@ -30,7 +32,7 @@
                         {% endif %}
                         <li role="presentation"><a href="{% url "gamelist" %}">Games </a></li>
                         <li role="presentation"><a href="{% url "leaderboard" %}">Leaderboard </a></li>
-                        <li role="presentation"><a href="#">FAQ </a></li>
+                        <li role="presentation"><a href="{% url "faq" %}">FAQ </a></li>
                     </ul>
                     <p class="navbar-text navbar-right actions">
                         {% if user.is_authenticated %}
@@ -74,6 +76,8 @@
     </div>
     <script src={% static "base/js/jquery.min.js" %}></script>
     <script src={% static "base/bootstrap/js/bootstrap.min.js" %}></script>
+    <script src={% static "faq/js/jquery.min.js" %}></script>
+    <script src={% static "faq/bootstrap/js/bootstrap.min.js" %}></script>
 </body>
 
 </html>
