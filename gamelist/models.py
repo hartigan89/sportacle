@@ -25,9 +25,25 @@ class Sport(models.Model):
         
     def get_absolute_url(self):
         return reverse('game_list_by_sport', args=[self.slug])
+
+class League(models.Model):
+    name = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'league'
+        verbose_name_plural = 'leagues'
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('game_list_by_league', args=[self.slug])
     
 class Game(models.Model):
     sport = models.ForeignKey(Sport, related_name='games')
+    league = models.ForeignKey(League)
     gameTime = models.DateTimeField()
     visitor = models.CharField(max_length=200, db_index=True)
     visitorOdds = models.DecimalField(max_digits=10, decimal_places=2)
