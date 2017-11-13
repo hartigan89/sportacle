@@ -7,6 +7,9 @@ from application.forms import RegistrationForm
 
 # Create your views here.
 
+def faq(request):
+    return render(request, 'application/faq.html')
+
 class RegistrationFormView(View):
     form_class = RegistrationForm
     template_name = 'application/landing.html'
