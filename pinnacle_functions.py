@@ -42,3 +42,8 @@ def getLine(base_url, username, password, sportID, leagueID, eventID, team):
     line = json.loads(req.text)
     return line
 
+def getResults(base_url, username, password, sportID, leagueID):
+    url = base_url + '/v1/fixtures/settled?sportId=' + str(sportID) + '&leagueIds=' + str(leagueID)
+    req = requests.get(url, auth=HTTPBasicAuth(username, password))
+    results = json.loads(req.text)
+    return results

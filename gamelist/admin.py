@@ -13,7 +13,7 @@ class LeagueAdmin(admin.ModelAdmin):
 admin.site.register(League, LeagueAdmin)
 
 class GameAdmin(admin.ModelAdmin):
-    list_display = ['id', 'sport', 'gameTime', 'visitor', 'visitorOdds', 'home', 'homeOdds', 'outcome', 'created', 'updated']
+    list_display = ['id', 'pinnacleID', 'sport', 'gameTime', 'visitor', 'visitorOdds', 'home', 'homeOdds', 'outcome', 'created', 'updated']
     list_filter = ['created', 'updated', 'sport']
-    list_editable = ['visitorOdds', 'homeOdds','outcome']
+    list_editable = ['pinnacleID','visitorOdds', 'homeOdds','outcome']
 admin.site.register(Game, GameAdmin)
