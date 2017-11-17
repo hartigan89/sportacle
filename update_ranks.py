@@ -5,11 +5,8 @@ sys.path.append("/home/ubuntu/workspace/") #path to your settings file
 os.environ['DJANGO_SETTINGS_MODULE'] = 'sportacle.settings'
 django.setup()
 
-from decimal import Decimal
-from picks.models import Pick
 from ranker.ranker import getRank
 from django.contrib.auth.models import User
-from gamelist.models import Game
 from ranker.models import Rank
 from leaderboard.models import Leaderboard
 
@@ -21,6 +18,7 @@ for u in users:
         lastUpdate = int(tempRank[0].numGames)
     else:
         currSmoothRank = 0
+        lastUpdate = 0
     
     stats = Leaderboard.objects.filter(user=u, type="A")[0]
     numGames = stats.numGames
