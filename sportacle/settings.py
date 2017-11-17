@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_beat',
     'application',
     'gamelist',
     'cart',
@@ -145,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -182,3 +183,6 @@ if ENV_ROLE == 'c9':
     DATABASES['default']['USER'] = 'postgres'
     DATABASES['default']['PASSWORD'] = SPORTACLE_DB_PASS
     DATABASES['default']['PORT'] = ''
+
+#celery
+CELERY_BROKER_URL = 'amqp://localhost'

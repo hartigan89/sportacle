@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+from datetime import datetime
+from pytz import timezone
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.urlresolvers import reverse
@@ -42,7 +44,7 @@ class League(models.Model):
         return reverse('game_list_by_league', args=[self.slug])
     
 class Game(models.Model):
-    pinnacleID = models.CharField(max_length=200, null=True)
+    pinnacleID = models.CharField(max_length=200)
     sport = models.ForeignKey(Sport, related_name='games')
     league = models.ForeignKey(League)
     gameTime = models.DateTimeField()
@@ -53,9 +55,9 @@ class Game(models.Model):
     outcome = models.CharField(max_length=1, choices=PICK_CHOICES)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-        
+
     class Meta:
-        ordering = ('sport','-updated',)
+        ordering = ('sport','gameTime',)
    
         
  

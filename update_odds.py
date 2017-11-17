@@ -72,10 +72,11 @@ for game in odds["leagues"][0]["events"]:
                 visitor = event["away"]
                 home = event["home"]
 
-        if Game.objects.filter(visitor=visitor, home=home, outcome='U'):
-            Game.objects.filter(visitor=visitor, home=home, outcome='U').update(visitorOdds=visitorLine,homeOdds=homeLine)
-        else:
-            Game.objects.create(pinnacleID=str(eventID),sport=sport,league=league, gameTime=gameTime, visitor=visitor, visitorOdds=visitorLine, home=home, homeOdds=homeLine, outcome='U')
+        if not visitor == "Away Goals":
+            if Game.objects.filter(visitor=visitor, home=home, outcome='U'):
+                Game.objects.filter(visitor=visitor, home=home, outcome='U').update(visitorOdds=visitorLine,homeOdds=homeLine)
+            else:
+                Game.objects.create(pinnacleID=str(eventID),sport=sport,league=league, gameTime=gameTime, visitor=visitor, visitorOdds=visitorLine, home=home, homeOdds=homeLine, outcome='U')
 
 #get nba games
 sport = Sport.objects.filter(name="Basketball")[0]
