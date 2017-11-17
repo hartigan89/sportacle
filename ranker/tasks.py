@@ -15,6 +15,7 @@ def update_ranks():
             lastUpdate = int(tempRank[0].numGames)
         else:
             currSmoothRank = 0
+            lastUpdate = 0
 
         stats = Leaderboard.objects.filter(user=u, type="A")[0]
         numGames = stats.numGames

@@ -1,6 +1,4 @@
-import numpy as np
-import scipy.stats as sp
-from poibin import PoiBin
+from leaderboard.poibin import PoiBin
 
 def getStats(prob, gamesWon):
     numGames = len(prob)

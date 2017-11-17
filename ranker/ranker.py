@@ -1,6 +1,4 @@
-import numpy as np
 import scipy.stats as sp
-from poibin import PoiBin
 
 def getRank(numGames, p, currRank):
     trueRank = 0
