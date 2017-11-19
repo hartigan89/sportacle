@@ -1,7 +1,4 @@
 from __future__ import unicode_literals
-from datetime import datetime
-from pytz import timezone
-from django.contrib.auth.models import User
 from django.db import models
 from django.core.urlresolvers import reverse
 

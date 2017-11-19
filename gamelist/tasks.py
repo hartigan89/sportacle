@@ -4,6 +4,7 @@ from pytz import timezone
 from datetime import datetime
 from pinnacle_functions import getOdds, getSportID, getLeagueID, getFixtures, getLine, getResults
 from gamelist.models import Sport, League, Game
+from leaderboard.tasks import update_leaderboard
 
 @shared_task()
 def update_odds():
@@ -201,3 +202,6 @@ def update_results():
 
                 game.outcome = outcome
                 game.save(update_fields=['outcome'])
+
+    #call next task
+    update_leaderboard.delay()
