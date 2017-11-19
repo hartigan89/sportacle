@@ -185,5 +185,10 @@ if ENV_ROLE == 'c9':
     DATABASES['default']['PORT'] = ''
 
 #celery
-CELERY_BROKER_URL = 'amqp://localhost'
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+if ENV_ROLE == 'production':
+    CELERY_BROKER_URL = 'amqp://jhcnmeen:2r7ZNw1bgV8zhMlruNoONVfEVYMZw9ve@impala.rmq.cloudamqp.com/jhcnmeen'
+    CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+if ENV_ROLE == 'development':
+    CELERY_BROKER_URL = 'amqp://localhost'
+    CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
