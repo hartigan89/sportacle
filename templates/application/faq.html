@@ -2,13 +2,15 @@
 {% load static %}
 {% block title %}Sportacle{% endblock %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static "faq/css/FAQ-Frequentlly-Asked-Questions.css" %}">
+    <link rel="stylesheet" href="{% static "faq/css/FAQ-Frequentlly-Asked-Questions1.css" %}">
+{% endblock %}
+
 {% block content %}
+<title>Sportacle - FAQ</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportacle - FAQ</title>
-
-    <div class="container" style="padding-top:0px;padding-bottom:40px;">
+<div class="container" style="padding-top:0px;padding-bottom:40px;">
     <div class="container">
         <div class="panel-group" id="accordion">
             <div class="faqHeader">New Player FAQ</div>
@@ -91,5 +93,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
