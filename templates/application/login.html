@@ -39,7 +39,8 @@
                             <input type="hidden" name="next" value="{{ next }}" />
                         </div>
                         
-                        <a href="#" class="forgot">Forgot your email or password?</a>
+                        <a href="#" class="forgot">Forgot your username or password?</a>
+                        <a href="{% url "landing" %}" class="forgot">Not registered yet? Click here to sign up</a>
                 </form>
             </div>
         {% endblock content %}

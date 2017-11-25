@@ -9,8 +9,8 @@
             <div class="col-md-12">
                 <form action="{% url "picks:pick_create" %}" method="post" class="text-right">
                 {% csrf_token %}
-                <a href="{% url "gamelist" %}" class="btn btn-plain round">Continue picking</a>
-                <input type="submit" class="btn btn-primary round" value="Submit picks">
+                <a href="{% url "gamelist" %}" class="btn btn-plain">Continue picking</a>
+                <input type="submit" class="btn btn-primary" value="Submit picks">
             </form>
             </div>
         </div>
@@ -49,7 +49,9 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <a href="{% url "cart:cart_remove" game.id %}" class="btn btn-remove">Remove game</a>
+                                    <a href="{% url "cart:cart_remove" game.id %}" class="btn btn-remove">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove game
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

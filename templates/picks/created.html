@@ -6,10 +6,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Thank you</h1>
-                <p>Your picks have been placed successfully.</p>
                 <p class="text-right">
                     <a href="{% url "gamelist" %}" class="btn btn-plain round">Continue picking</a>
+                </p>
+                <h1>Thanks, {{ request.user.username }}!</h1>
+                <p>
+                    Here's your pick summary:
+                    <ul>
+                        {% for pick in success %}
+                            <li><span class="label label-success">PLACED</span><strong>  Your pick: {{ pick.selection }}, {{ pick.selectionOdds }}</strong>  {{ pick.game.sport }}, {{ pick.game.gameTime }}, {{ pick.game.visitor  }} @ {{ pick.game.home }}</li>
+                        {% endfor %}
+
+                        {% for pick in changes %}
+                            <li><span class="label label-warning">CHANGED</span><strong>  Your pick: {{ pick.selection }}, {{ pick.selectionOdds }}</strong>  {{ pick.game.sport }}, {{ pick.game.gameTime }}, {{ pick.game.visitor  }} @ {{ pick.game.home }}</li>
+                        {% endfor %}
+
+                        {% for pick in late %}
+                            <li><span class="label label-danger">FAILED:GAME ALREADY STARTED</span><strong>  Your pick: {{ pick.selection }}, {{ pick.selectionOdds }}</strong>  {{ pick.game.sport }}, {{ pick.game.gameTime }}, {{ pick.game.visitor  }} @ {{ pick.game.home }}</li>
+                        {% endfor %}
+                    </ul>
                 </p>
             </div>
         </div>

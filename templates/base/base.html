@@ -25,34 +25,38 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        {% if user.is_authenticated %}
-                            <li role="presentation"><a href="{% url "profile" request.user.username %}">Profile </a></li>
-                        {% else %}
-                            <li role="presentation"><a href="{% url "login" %}">Profile </a></li>
-                        {% endif %}
                         <li role="presentation"><a href="{% url "gamelist" %}">Games </a></li>
                         <li role="presentation"><a href="{% url "leaderboard" %}">Leaderboard </a></li>
                         <li role="presentation"><a href="{% url "faq" %}">FAQ </a></li>
                     </ul>
-                    <p class="navbar-text navbar-right actions">
-                        {% if user.is_authenticated %}
-                            {% with total_items=cart|length %}
-                                {% if cart|length > 0 %}
-                                    Your pick card: 
-                                    <a href="{% url "cart:cart_detail" %}">
-                                        {{ total_items }} pick{{ total_items|pluralize }}
-                                    </a>
-                                     |
-                                {% else %}
-                                    Your card is empty |
-                                {% endif %}
-                            {% endwith %} 
-                            Logged in as: <a href="{% url "profile" request.user.username %}">{{ user.get_username }}</a> |
-                            <a href="{% url "logout" %}">Log Out</a>
-                        {% else %}
-                            <a class="navbar-link login" href="{% url "login" %}">Log In</a> <a class="btn btn-default action-button" role="button" href="{% url "landing" %}" style="background-color:rgb(13,183,30);">Sign Up</a>
-                        {% endif %}
-                    </p>
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                {% with total_items=cart|length %}
+                                    {% if cart|length > 0 %}
+                                        <a href="{% url "cart:cart_detail" %}">
+                                            Your pick card: {{ total_items }} pick{{ total_items|pluralize }}
+                                        </a>
+                                    {% else %}
+                                        <a href="#">Your card is empty</a>
+                                    {% endif %}
+                                {% endwith %}
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.get_username }}<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url "profile" request.user.username %}">View Profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{% url "logout" %}">Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <p class="navbar-text navbar-right actions">
+                            <a class="btn btn-default plain-button" role="button" href="{% url "login" %}">Log In</a>
+                            <a class="btn btn-default action-button" role="button" href="{% url "landing" %}">Sign Up</a>
+                        </p>
+                    {% endif %}
                 </div>
             </div>
         </nav>

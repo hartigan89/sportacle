@@ -35,7 +35,10 @@ class RegistrationFormView(View):
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
-            return render(request, 'application/login.html')
+
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return render(request, 'gamelist/gamelist.html')
         
     
     

@@ -1,4 +1,6 @@
-import datetime
+from pytz import timezone
+from datetime import datetime
+from datetime import timedelta
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
@@ -42,13 +44,13 @@ def profile_page(request, username):
         leader = None
     
     #pick history
-    today = datetime.date.today()
-    weekDate = today - datetime.timedelta(days=7)
-    monthDate = today - datetime.timedelta(days=30)
+    now = datetime.now(timezone('UTC'))
+    weekDate = now - timedelta(days=7)
+    monthDate = now - timedelta(days=30)
     
     current = Pick.objects.filter(user=user, game__outcome="U")
-    lastWeek = Pick.objects.filter(user=user, updated__range=[weekDate, today]).exclude(game__outcome="U")
-    lastMonth = Pick.objects.filter(user=user, updated__range=[monthDate, today]).exclude(game__outcome="U")
+    lastWeek = Pick.objects.filter(user=user, updated__range=[weekDate, now]).exclude(game__outcome="U")
+    lastMonth = Pick.objects.filter(user=user, updated__range=[monthDate, now]).exclude(game__outcome="U")
     allTime = Pick.objects.filter(user=user).exclude(game__outcome="U")
     
     progress = int((smoothRank-int(smoothRank))*100)

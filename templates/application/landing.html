@@ -26,8 +26,8 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav"></ul>
                     <p class="navbar-text navbar-right actions"> 
-                        <a class="btn btn-default action-button" role="button" href="/gamelist" style="background-color:rgb(34,162,12);">Continue as guest</a>
-                        <a class="btn btn-default action-button" role="button" href="/login" style="background-color:rgb(34,162,12);">Login</a>
+                        <a class="btn btn-default plain-button" role="button" href="/gamelist"">Continue as guest</a>
+                        <a class="btn btn-default action-button" role="button" href="/login"">Login</a>
                     </p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="col-md-4 col-md-push-7 phone-preview">
             <div class="iphone-mockup"></div>
             <form method="post">
-                <h1 class="text-center" style="color:rgb(252,251,251);"><strong>Create</strong> an account.</h1>
+                <h1 class="text-center" style="color:rgb(252,251,251);"><strong>Create</strong> an account</h1>
                 <div class="form-group">
                     {% csrf_token %}
                     {% for field in form %}
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-pull-3 get-it">
                     <h1>Think you're good at sports betting?</h1>
-                    <p><strong>Prove it: Sportacle will assess your sports picking ability and place you into our ranking system. Rank high enough and become a Sportacle Verified Picker (SVP) and start earning cash when other users pay to follow your picks.</strong></p>
+                    <p><strong>Prove it: Sportacle will assess your sports picking ability by placing you into our ranking system. Rank high enough and become a Sportacle Verified Picker (SVP) to start earning cash when other users pay to follow your picks.</strong></p>
                     <p></p>
                 </div>
             </div>
@@ -70,7 +70,7 @@
     <section class="testimonials">
         <h2 class="text-center">Watch sports for a reason!</h2>
         <blockquote>
-            <p>Before the game begins, login to Sportacle and select your pick. If your pick is correct, you will begin to rank up.  If your pick is wrong, you will begin to rank down. Rank up high enough and become a Sportacle Verified Picker (SVP) <img src="{% static "landing/images/verified.png" alt="Uh oh" %}"> . </p>
+            <p>Before the game begins, login to Sportacle and select your pick. If your pick is correct, you will begin to rank up.  Get it wrong, and you will begin to rank down. Rank high enough and become a Sportacle Verified Picker (SVP).</p>
         </blockquote>
     </section>
     <section class="features" style="background-color:rgb(34,162,12);">
