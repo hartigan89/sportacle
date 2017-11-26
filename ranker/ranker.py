@@ -58,28 +58,28 @@ def getRank(numGames, p, currRank):
             smoothRank = currRank + (trueRank-currRank)*smooth
         
         if smoothRank < 1:
-            rank = "Donkey I"
-        elif smoothRank < 2:
-            rank = "Donkey II"
-        elif smoothRank < 3:
-            rank = "Donkey III"
-        elif smoothRank < 4:
             rank = "Amateur I"
-        elif smoothRank < 5:
+        elif smoothRank < 2:
             rank = "Amateur II"
-        elif smoothRank < 6:
+        elif smoothRank < 3:
             rank = "Amateur III"
-        elif smoothRank < 7:
+        elif smoothRank < 4:
             rank = "Veteran I"
-        elif smoothRank < 8:
+        elif smoothRank < 5:
             rank = "Veteran II"
-        elif smoothRank < 9:
+        elif smoothRank < 6:
             rank = "Veteran III"
-        elif smoothRank < 10:
+        elif smoothRank < 7:
             rank = "Expert I"
-        elif smoothRank < 11:
+        elif smoothRank < 8:
             rank = "Expert II"
-        else:
+        elif smoothRank < 9:
             rank = "Expert III"
+        elif smoothRank < 10:
+            rank = "Oracle I"
+        elif smoothRank < 11:
+            rank = "Oracle II"
+        else:
+            rank = "Oracle III"
 
     return {'trueRank':trueRank, 'smoothRank':smoothRank, 'rank':rank}
