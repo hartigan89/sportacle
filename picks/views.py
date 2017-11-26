@@ -10,6 +10,10 @@ def pick_create(request):
     if not request.user.is_authenticated():
         return redirect('/login/')
 
+    changes = []
+    late = []
+    success = []
+
     now = datetime.now(timezone('UTC'))
 
     cart = Cart(request)
@@ -17,9 +21,13 @@ def pick_create(request):
         for item in cart:
             if item['game'].gameTime > now:
                 if Pick.objects.filter(user=request.user, game=item['game']):
+
+
                     Pick.objects.filter(user=request.user, game=item['game']).update(selection=item['selection'],
                                              odds=item['selectionOdds'],
                                              probability=item['selectionProb'])
+
+                    changes.append(item)
                 else:
                     Pick.objects.create(user=request.user,
                                              game=item['game'],
@@ -27,9 +35,16 @@ def pick_create(request):
                                              odds=item['selectionOdds'],
                                              probability=item['selectionProb']
                                              )
-                                         
+
+                    success.append(item)
+            else:
+                late.append(item)
+
+
+    context = {'success':success, 'late':late, 'changes':changes}
+
     # clear the cart
     cart.clear()
 
-    return render(request, 'picks/created.html')
+    return render(request, 'picks/created.html', context)
             

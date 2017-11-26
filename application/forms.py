@@ -20,7 +20,7 @@ class RegistrationForm(forms.ModelForm):
             }
         ))
         
-    password_repeat = forms.CharField(label='Password Repeat', widget=forms.PasswordInput(
+    password_repeat = forms.CharField(label='Retype Password', widget=forms.PasswordInput(
             attrs = {
                 'class':'form-control'
             }

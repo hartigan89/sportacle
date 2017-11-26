@@ -24,8 +24,8 @@
             {% endif %}
         </ul>
         <ul class="list-inline">
-            <li><a href="{% url "list_followers" user.username %}">{{ numFollowers }} Followers</a></li>
-            <li><a href="{% url "list_following" user.username %}">{{ numFollowing }} Following</a></li>
+            <li><a href="{% url "list_followers" user.username %}">{{ numFollowers }} followers</a></li>
+            <li><a href="{% url "list_following" user.username %}">{{ numFollowing }} following</a></li>
         </ul>
         <div class="row">
             <div class="col-md-12">

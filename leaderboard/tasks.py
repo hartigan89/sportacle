@@ -6,6 +6,7 @@ from leaderboard.stats import getStats
 from django.contrib.auth.models import User
 from gamelist.models import Game
 from leaderboard.models import Leaderboard
+from ranker.tasks import update_ranks
 
 @shared_task()
 def update_leaderboard():
@@ -108,3 +109,6 @@ def update_leaderboard():
                                    edge=edge,
                                    pValue=p,
                                    )
+
+    #call next task
+    update_ranks.delay()

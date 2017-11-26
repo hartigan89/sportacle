@@ -195,7 +195,7 @@
 }
 
 .navigation-clean-button .action-button, .navigation-clean-button .action-button:active {
-  background:#56c6c6;
+  background:#07ac0b;
   border-radius:20px;
   color:#fff;
   box-shadow:none;
@@ -206,7 +206,22 @@
 }
 
 .navigation-clean-button .action-button:hover {
-  background:#66d7d7;
+  background: #3aa33d;
+}
+
+.navigation-clean-button .plain-button, .navigation-clean-button .plain-button:active {
+  background:#8b8f96;
+  border-radius:20px;
+  color:#fff;
+  box-shadow:none;
+  border:none;
+  text-shadow:none;
+  padding:10px 22px;
+  transition:background-color 0.25s;
+}
+
+.navigation-clean-button .plain-button:hover {
+  background: #939496;
 }
 
 .navigation-clean-button.navbar-inverse .action-button, .navigation-clean-button.navbar-inverse .action-button:active {

@@ -11,6 +11,13 @@ class Rank(models.Model):
     rank = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-        
+
+    @property
+    def isSVP(self):
+        if self.smoothRank > 10:
+            return True
+        else:
+            return False
+
     class Meta:
         ordering = ('-updated',)
