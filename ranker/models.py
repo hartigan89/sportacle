@@ -14,9 +14,10 @@ class Rank(models.Model):
 
     @property
     def isSVP(self):
-        
-
-        return currRank
+        if self.smoothRank > 10:
+            return True
+        else:
+            return False
 
     class Meta:
         ordering = ('-updated',)
