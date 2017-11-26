@@ -31,10 +31,12 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Current Rank: {{ leader.getRank }}</h3></div>
-                    <div class="panel-body"><strong>Progress to next rank</strong>
+                        <h3 class="panel-title">Ranking</h3></div>
+                    <div class="panel-body">
+                        <p>Current rank: {{ leader.getRank }}</p>
+                        <p>Progress to next rank:</p>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-success" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%;"></div>
+                            <div class="progress-bar progress-bar-success" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%;">{{ progress }}%</div>
                         </div>
                     </div>
                 </div>
@@ -96,35 +98,39 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                    {% if current %}
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Game Date</th>
-                                                        <th>Visitor</th>
-                                                        <th>Home</th>
-                                                        <th>Selection</th>
-                                                        <th>Outcome</th>
-                                                        <th>Win/Lose</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {% for pick in current %}
+                                    {% if isFollowing or isOwn %}
+                                        {% if current %}
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
                                                         <tr>
-                                                            <td>{{ pick.game.gameTime }}</td>
-                                                            <td>{{ pick.game.visitor }}</td>
-                                                            <td>{{ pick.game.home }}</td>
-                                                            <td>{{ pick.selection }}</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <th>Game Date</th>
+                                                            <th>Visitor</th>
+                                                            <th>Home</th>
+                                                            <th>Selection</th>
+                                                            <th>Outcome</th>
+                                                            <th>Win/Lose</th>
                                                         </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for pick in current %}
+                                                            <tr>
+                                                                <td>{{ pick.game.gameTime }}</td>
+                                                                <td>{{ pick.game.visitor }}</td>
+                                                                <td>{{ pick.game.home }}</td>
+                                                                <td>{{ pick.selection }}</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {% else %}
+                                            <p>No picks to show</p>
+                                        {% endif %}
                                     {% else %}
-                                        <p>No picks to show</p>
+                                        <p>Follow this user to see their current picks</p>
                                     {% endif %}
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="tab-2">

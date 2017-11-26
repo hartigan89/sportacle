@@ -1,5 +1,6 @@
 {% extends "base/base.html" %}
 {% block title %}Sportacle{% endblock %}
+{% load static %}
 
 {% block content %}
 <title>Sportacle - Leaderboard</title>
@@ -32,6 +33,7 @@
                                                         <th>Expected Win %</th>
                                                         <th>Edge</th>
                                                         <th>Rank</th>
+                                                        <th>SVP</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -45,6 +47,11 @@
                                                             <td>{{ leader.getExpRate|floatformat }}%</td>
                                                             <td>{{ leader.formatEdge|floatformat }}%</td>
                                                             <td>{{ leader.getRank }}</td>
+                                                            <td>
+                                                                {% if leader.isSVP %}
+                                                                     <img src="{% static "base/img/verified.png"%}" style="width:24px;">
+                                                                {% endif %}
+                                                            </td>
                                                         </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -68,6 +75,7 @@
                                                         <th>Expected Win %</th>
                                                         <th>Edge</th>
                                                         <th>Rank</th>
+                                                        <th>SVP</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -81,6 +89,11 @@
                                                             <td>{{ leader.getExpRate|floatformat }}%</td>
                                                             <td>{{ leader.formatEdge|floatformat }}%</td>
                                                             <td>{{ leader.getRank }}</td>
+                                                            <td>
+                                                                {% if leader.isSVP %}
+                                                                     <img src="{% static "base/img/verified.png"%}" style="width:24px;">
+                                                                {% endif %}
+                                                            </td>
                                                         </tr>
                                                     {% endfor %}
                                                 </tbody>
@@ -104,6 +117,7 @@
                                                         <th>Expected Win %</th>
                                                         <th>Edge</th>
                                                         <th>Rank</th>
+                                                        <th>SVP</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -117,6 +131,11 @@
                                                             <td>{{ leader.getExpRate|floatformat }}%</td>
                                                             <td>{{ leader.formatEdge|floatformat }}%</td>
                                                             <td>{{ leader.getRank }}</td>
+                                                            <td>
+                                                                {% if leader.isSVP %}
+                                                                     <img src="{% static "base/img/verified.png"%}" style="width:24px;">
+                                                                {% endif %}
+                                                            </td>
                                                         </tr>
                                                     {% endfor %}
                                                 </tbody>

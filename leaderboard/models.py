@@ -29,7 +29,17 @@ class Leaderboard(models.Model):
             currRank = "Unranked"
         
         return currRank
-    
+
+    @property
+    def isSVP(self):
+        tempRank = Rank.objects.filter(user=self.user).order_by('-updated')
+        if tempRank:
+            svp = tempRank[0].isSVP
+        else:
+            svp = False
+
+        return svp
+
     @property
     def getWinRate(self):
         if self.numGames > 0:

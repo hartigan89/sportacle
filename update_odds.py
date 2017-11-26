@@ -2,7 +2,7 @@ import os
 import sys
 import django
 sys.path.append("/home/ubuntu/workspace/") #path to your settings file
-os.environ['DJANGO_SETTINGS_MODULE'] = 'sportacle.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'sportacle.settings.dev'
 django.setup()
 
 from pytz import timezone

@@ -23,6 +23,7 @@
                                             <th>Expected Win %</th>
                                             <th>Edge</th>
                                             <th>Rank</th>
+                                            <th>SVP</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,6 +36,11 @@
                                                 <td>{{ r.getExpRate|floatformat }}%</td>
                                                 <td>{{ r.formatEdge|floatformat }}%</td>
                                                 <td>{{ r.getRank }}</td>
+                                                <td>
+                                                    {% if r.isSVP %}
+                                                         <img src="{% static "base/img/verified.png"%}" style="width:24px;">
+                                                    {% endif %}
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
