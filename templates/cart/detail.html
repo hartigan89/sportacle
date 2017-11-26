@@ -49,8 +49,12 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
+                                    <a href="{% url "cart:cart_switch" game.id %}" class="btn btn-switch">
+                                        <span class="glyphicon glyphicon-transfer"></span> Switch pick
+                                    </a>
+
                                     <a href="{% url "cart:cart_remove" game.id %}" class="btn btn-remove">
-                                    <span class="glyphicon glyphicon-trash"></span> Remove game
+                                        <span class="glyphicon glyphicon-trash"></span> Remove game
                                     </a>
                                 </td>
                             </tr>

@@ -6,13 +6,13 @@ from cart.cart import Cart
 from django.contrib.auth.models import User
 from gamelist.models import Game
 
-changes = []
-late = []
-success = []
-
 def pick_create(request):
     if not request.user.is_authenticated():
         return redirect('/login/')
+
+    changes = []
+    late = []
+    success = []
 
     now = datetime.now(timezone('UTC'))
 

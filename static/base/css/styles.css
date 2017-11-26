@@ -68,6 +68,26 @@ a:hover {
     box-shadow: none;
 }
 
+.btn-switch {
+    background:#8b8f96;
+    color:#fff;
+    box-shadow:none;
+    border:none;
+    text-shadow:none;
+    padding:10px 22px;
+    transition:background-color 0.25s;
+}
+
+.btn-switch:hover, .btn-switch:focus, .btn-switch:active, .btn-switch.active, .open > .dropdown-toggle.btn-switch {
+    background: #4286f4;
+    color: #fff;
+}
+
+.btn-switch:active, .btn-switch.active {
+    background: #4286f4;
+    box-shadow: none;
+}
+
 .btn-plain {
     background:#8b8f96;
     color:#fff;

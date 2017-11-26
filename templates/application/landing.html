@@ -20,19 +20,17 @@
     <div>
         <nav class="navbar navbar-default navigation-clean-button">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="{% url "landing" %}" style="color:rgb(34,162,12);font-size:30px;">Sportacle </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <div class="navbar-header pull-left">
+                    <a class="navbar-brand navbar-link" href="{% url "landing" %}" style="color:rgb(34,162,12);font-size:30px;">Sportacle </a>
                 </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav"></ul>
-                    <p class="navbar-text navbar-right actions"> 
-                        <a class="btn btn-default plain-button" role="button" href="/gamelist"">Continue as guest</a>
-                        <a class="btn btn-default action-button" role="button" href="/login"">Login</a>
-                    </p>
-                </div>
+                <p class="navbar-text navbar-right actions">
+                    <a class="btn btn-default plain-button" role="button" href="/gamelist"">Continue as guest</a>
+                    <a class="btn btn-default action-button" role="button" href="/login"">Login</a>
+                </p>
             </div>
         </nav>
     </div>
+
      <div class="jumbotron hero" style="background-image: url('{% static "landing/images/nfl_desktop_wallpaper_015.png"%}')";>
         <div class="col-md-4 col-md-push-7 phone-preview">
             <div class="iphone-mockup"></div>

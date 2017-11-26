@@ -60,6 +60,20 @@ class Cart(object):
         
         self.save()
 
+    def switch(self, game):
+        """
+        Switch the user's selection.
+        """
+        game_id = str(game.id)
+        if game_id in self.cart:
+            selection = self.cart[game_id]['selection']
+            if selection == "V":
+                self.cart[game_id]['selection'] = "H"
+            else:
+                self.cart[game_id]['selection'] = "V"
+
+            self.save()
+
     def remove(self, game):
         """
         Remove a product from the cart.
