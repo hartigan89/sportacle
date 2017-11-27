@@ -29,7 +29,7 @@ def profile_page(request, username):
     numFollowing = profile.get_following().count()
     numFollowers = profile.get_followers().count()
     
-    tempRank = Rank.objects.filter(user=user).order_by('-updated')
+    tempRank = Rank.objects.filter(user=user)
     if tempRank:
         rank = tempRank[0]
         smoothRank = float(rank.smoothRank)
@@ -48,10 +48,10 @@ def profile_page(request, username):
     weekDate = now - timedelta(days=7)
     monthDate = now - timedelta(days=30)
     
-    current = Pick.objects.filter(user=user, game__outcome="U")
-    lastWeek = Pick.objects.filter(user=user, updated__range=[weekDate, now]).exclude(game__outcome="U")
-    lastMonth = Pick.objects.filter(user=user, updated__range=[monthDate, now]).exclude(game__outcome="U")
-    allTime = Pick.objects.filter(user=user).exclude(game__outcome="U")
+    current = Pick.objects.filter(user=user, game__outcome="U").order_by('-game__gameTime')
+    lastWeek = Pick.objects.filter(user=user, updated__range=[weekDate, now]).exclude(game__outcome="U").order_by('-game__gameTime')
+    lastMonth = Pick.objects.filter(user=user, updated__range=[monthDate, now]).exclude(game__outcome="U").order_by('-game__gameTime')
+    allTime = Pick.objects.filter(user=user).exclude(game__outcome="U").order_by('-game__gameTime')
     
     progress = int((smoothRank-int(smoothRank))*100)
     
@@ -104,7 +104,7 @@ def list_followers(request, username):
     followers = profile.get_followers()
     
     title = "Followers"
-    relationships = Leaderboard.objects.filter(type="A", user__profile=followers)
+    relationships = Leaderboard.objects.filter(type="A", user__profile=followers).order_by('user__username')
     
     context = {'title':title,
     'relationships':relationships}
@@ -118,7 +118,7 @@ def list_following(request, username):
     following = profile.get_following()
     
     title = "Following"
-    relationships = Leaderboard.objects.filter(type="A", user__profile=following)
+    relationships = Leaderboard.objects.filter(type="A", user__profile=following).order_by('user__username')
     
     context = {'title':title,
     'relationships':relationships}

@@ -9,7 +9,7 @@ from leaderboard.models import Leaderboard
 def update_ranks():
     users = User.objects.all()
     for u in users:
-        tempRank = Rank.objects.filter(user=u).order_by('-updated')
+        tempRank = Rank.objects.filter(user=u)
         if tempRank:
             currSmoothRank = float(tempRank[0].smoothRank)
             lastUpdate = int(tempRank[0].numGames)
@@ -18,8 +18,8 @@ def update_ranks():
             lastUpdate = 0
 
         stats = Leaderboard.objects.filter(user=u, type="A")[0]
-        numGames = stats.numGames
-        pValue = stats.pValue
+        numGames = float(stats.numGames)
+        pValue = float(stats.pValue)
 
         if numGames != lastUpdate:
             dict = getRank(numGames, pValue, currSmoothRank)
@@ -27,6 +27,8 @@ def update_ranks():
             trueRank = dict["trueRank"]
             smoothRank = dict["smoothRank"]
             rank = dict["rank"]
+
+            Rank.objects.filter(user=u).delete()
 
             Rank.objects.create(user=u,
                                 numGames=numGames,

@@ -22,7 +22,7 @@ class Leaderboard(models.Model):
     
     @property
     def getRank(self):
-        tempRank = Rank.objects.filter(user=self.user).order_by('-updated')
+        tempRank = Rank.objects.filter(user=self.user)
         if tempRank:
             currRank = tempRank[0].rank
         else:
@@ -32,7 +32,7 @@ class Leaderboard(models.Model):
 
     @property
     def isSVP(self):
-        tempRank = Rank.objects.filter(user=self.user).order_by('-updated')
+        tempRank = Rank.objects.filter(user=self.user)
         if tempRank:
             svp = tempRank[0].isSVP
         else:

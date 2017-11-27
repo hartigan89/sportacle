@@ -53,10 +53,12 @@ def getRank(numGames, p, currRank):
         else:
             trueRank = 11
     
-        #if # of games played is greated than 30 then smooth the ranks
-        if numGames > 10:
-            smoothRank = currRank + (trueRank-currRank)*smooth
-        
+        #if not initial ranking then smooth the ranks
+        if currRank == 0:
+            smoothRank = trueRank
+        else:
+            smoothRank = currRank + (trueRank - currRank) * smooth
+
         if smoothRank < 1:
             rank = "Amateur I"
         elif smoothRank < 2:

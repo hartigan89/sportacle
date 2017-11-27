@@ -82,7 +82,7 @@
                                                     {% for leader in lastMonth %}
                                                         <tr>
                                                             <td>{{ forloop.counter }}</td>
-                                                            <td><a href="{% url "profile" leader.user.username %}">{{ leader.user.username }}</a></td>
+                                                            <td><a href="{% url "profile" leader.user.username %}"><strong>{{ leader.user.username }}</strong></a></td>
                                                             <td>{{ leader.numGames }}</td>
                                                             <td>{{ leader.gamesWon }}</td>
                                                             <td>{{ leader.getWinRate|floatformat }}%</td>
@@ -124,7 +124,7 @@
                                                     {% for leader in allTime %}
                                                         <tr>
                                                             <td>{{ forloop.counter }}</td>
-                                                            <td><a href="{% url "profile" leader.user.username %}">{{ leader.user.username }}</a></td>
+                                                            <td><a href="{% url "profile" leader.user.username %}"><strong>{{ leader.user.username }}</strong></a></td>
                                                             <td>{{ leader.numGames }}</td>
                                                             <td>{{ leader.gamesWon }}</td>
                                                             <td>{{ leader.getWinRate|floatformat }}%</td>

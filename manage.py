@@ -1,16 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
-from django.core.exceptions import ImproperlyConfigured
-
-# Handling Key Import Errors
-def get_env_variable(var_name):
-    """ Get the environment variable or return exception """
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        error_msg = "Set the %s environment variable" % var_name
-        raise ImproperlyConfigured(error_msg)
+from sportacle.settings.base import get_env_variable
 
 if __name__ == "__main__":
     # Get ENV VARIABLES key
