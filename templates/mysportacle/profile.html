@@ -33,8 +33,12 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Ranking</h3></div>
                     <div class="panel-body">
-                        <p>Current rank: {{ leader.getRank }}</p>
-                        <p>Progress to next rank:</p>
+                        {% if leader.getRank == "Unranked" %}
+                            <p><strong>Current rank:</strong> {{ leader.getRank }} - {{ leader.numGames }} out of 10 games picked</p>
+                        {% else %}
+                            <p><strong>Current rank:</strong> {{ leader.getRank }}</p>
+                        {% endif %}
+                        <p><strong>Progress to next rank:</strong></p>
                         <div class="progress">
                             <div class="progress-bar progress-bar-success" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%;">{{ progress }}%</div>
                         </div>
