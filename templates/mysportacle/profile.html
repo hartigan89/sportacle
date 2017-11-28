@@ -162,7 +162,7 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
-                                                                {% elif pick.selection == "T" %}
+                                                                {% elif pick.game.outcome == "T" %}
                                                                     Push
                                                                 {% else %}
                                                                     Lose
@@ -202,7 +202,7 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
-                                                                {% elif pick.selection == "T" %}
+                                                                {% elif pick.game.outcome == "T" %}
                                                                     Push
                                                                 {% else %}
                                                                     Lose
@@ -242,7 +242,7 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
-                                                                {% elif pick.selection == "T" %}
+                                                                {% elif pick.game.outcome == "T" %}
                                                                     Push
                                                                 {% else %}
                                                                     Lose
