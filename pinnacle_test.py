@@ -13,9 +13,9 @@ leagueID = getLeagueID(base_url, username, password, sportID, "NHL OT Included")
 #url = base_url + '/v2/leagues?sportId=' + str(sportID)
 #url = base_url + '/v2/sports'
 #url = base_url + '/v1/fixtures?sportId=' + str(sportID) + '&leagueIDs=' + str(leagueID)
-#url = base_url + '/v1/fixtures/settled?sportId=' + str(sportID) + '&leagueIDs=' + str(leagueID)
+url = base_url + '/v1/fixtures/settled?sportId=' + str(sportID) + '&leagueIDs=' + str(leagueID)
 #url = base_url + '/v1/line?sportId=' + str(sportID) + '&leagueID=' + str(leagueID) + '&eventID=784380443&betType=MONEYLINE&team=Team1&oddsFormat=DECIMAL&periodNumber=0'
-url = base_url + '/v1/odds?sportId=' + str(sportID) + '&leagueIDs=' + str(leagueID)
+#url = base_url + '/v1/odds?sportId=' + str(sportID) + '&leagueIDs=' + str(leagueID)
 
 req = requests.get(url, auth=HTTPBasicAuth(username, password))
 print(req.status_code)

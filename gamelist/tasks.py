@@ -134,18 +134,21 @@ def update_results():
 
         for event in results["leagues"][0]["events"]:
             if pinnacleID == str(event["id"]):
-                awayScore = event["periods"][0]["team1Score"]
-                homeScore = event["periods"][0]["team2Score"]
+                periods = event["periods"]
+                for period in periods:
+                    if period["number"]==0:
+                        awayScore = period["team1Score"]
+                        homeScore = period["team2Score"]
 
-                if awayScore > homeScore:
-                    outcome = "V"
-                elif homeScore > awayScore:
-                    outcome = "H"
-                else:
-                    outcome = "T"
+                        if awayScore > homeScore:
+                            outcome = "V"
+                        elif homeScore > awayScore:
+                            outcome = "H"
+                        else:
+                            outcome = "T"
 
-                game.outcome = outcome
-                game.save(update_fields=['outcome'])
+                        game.outcome = outcome
+                        game.save(update_fields=['outcome'])
 
     # update NHL scores
     sport = Sport.objects.filter(name="Hockey")[0]
@@ -162,18 +165,21 @@ def update_results():
 
         for event in results["leagues"][0]["events"]:
             if pinnacleID == str(event["id"]):
-                awayScore = event["periods"][0]["team1Score"]
-                homeScore = event["periods"][0]["team2Score"]
+                periods = event["periods"]
+                for period in periods:
+                    if period["number"] == 0:
+                        awayScore = period["team1Score"]
+                        homeScore = period["team2Score"]
 
-                if awayScore > homeScore:
-                    outcome = "V"
-                elif homeScore > awayScore:
-                    outcome = "H"
-                else:
-                    outcome = "T"
+                        if awayScore > homeScore:
+                            outcome = "V"
+                        elif homeScore > awayScore:
+                            outcome = "H"
+                        else:
+                            outcome = "T"
 
-                game.outcome = outcome
-                game.save(update_fields=['outcome'])
+                        game.outcome = outcome
+                        game.save(update_fields=['outcome'])
 
     # update NBA scores
     sport = Sport.objects.filter(name="Basketball")[0]
@@ -190,18 +196,21 @@ def update_results():
 
         for event in results["leagues"][0]["events"]:
             if pinnacleID == str(event["id"]):
-                awayScore = event["periods"][0]["team1Score"]
-                homeScore = event["periods"][0]["team2Score"]
+                periods = event["periods"]
+                for period in periods:
+                    if period["number"] == 0:
+                        awayScore = period["team1Score"]
+                        homeScore = period["team2Score"]
 
-                if awayScore > homeScore:
-                    outcome = "V"
-                elif homeScore > awayScore:
-                    outcome = "H"
-                else:
-                    outcome = "T"
+                        if awayScore > homeScore:
+                            outcome = "V"
+                        elif homeScore > awayScore:
+                            outcome = "H"
+                        else:
+                            outcome = "T"
 
-                game.outcome = outcome
-                game.save(update_fields=['outcome'])
+                        game.outcome = outcome
+                        game.save(update_fields=['outcome'])
 
     #call next task
     update_leaderboard.delay()

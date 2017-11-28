@@ -162,6 +162,8 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
+                                                                {% elif pick.selection == "T" %}
+                                                                    Push
                                                                 {% else %}
                                                                     Lose
                                                                 {% endif %}
@@ -200,6 +202,8 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
+                                                                {% elif pick.selection == "T" %}
+                                                                    Push
                                                                 {% else %}
                                                                     Lose
                                                                 {% endif %}
@@ -238,6 +242,8 @@
                                                             <td>
                                                                 {% if pick.selection == pick.game.outcome %}
                                                                     Win
+                                                                {% elif pick.selection == "T" %}
+                                                                    Push
                                                                 {% else %}
                                                                     Lose
                                                                 {% endif %}

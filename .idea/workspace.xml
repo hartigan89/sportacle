@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94c27d53-de76-4ed3-ae3f-8b74f667d4b6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/update_leaderboard.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/update_odds.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/update_ranks.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/update_results.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leaderboard/models.py" afterPath="$PROJECT_DIR$/leaderboard/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysportacle/views.py" afterPath="$PROJECT_DIR$/mysportacle/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ranker/ranker.py" afterPath="$PROJECT_DIR$/ranker/ranker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ranker/tasks.py" afterPath="$PROJECT_DIR$/ranker/tasks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sportacle/celery.py" afterPath="$PROJECT_DIR$/sportacle/celery.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/leaderboard/leaderboard.html" afterPath="$PROJECT_DIR$/templates/leaderboard/leaderboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamelist/tasks.py" afterPath="$PROJECT_DIR$/gamelist/tasks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pinnacle_test.py" afterPath="$PROJECT_DIR$/pinnacle_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/mysportacle/profile.html" afterPath="$PROJECT_DIR$/templates/mysportacle/profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,12 +15,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysportacle/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="53" column="89" lean-forward="false" selection-start-line="53" selection-start-column="89" selection-end-line="53" selection-end-column="89" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pinnacle_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pinnacle_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gamelist/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2312">
+              <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mysportacle/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="854">
+              <caret line="248" column="75" lean-forward="false" selection-start-line="248" selection-start-column="75" selection-end-line="248" selection-end-column="75" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,6 +94,7 @@
     <findStrings>
       <find>nhl</find>
       <find>nba</find>
+      <find>789283705</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,10 +103,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gamelist/models.py" />
         <option value="$PROJECT_DIR$/gamelist/tests.py" />
         <option value="$PROJECT_DIR$/application/tasks.py" />
-        <option value="$PROJECT_DIR$/gamelist/tasks.py" />
         <option value="$PROJECT_DIR$/leaderboard/tasks.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/celeryconfig.py" />
@@ -117,7 +143,6 @@
         <option value="$PROJECT_DIR$/update_odds.py" />
         <option value="$PROJECT_DIR$/update_results.py" />
         <option value="$PROJECT_DIR$/ranker/admin.py" />
-        <option value="$PROJECT_DIR$/templates/mysportacle/profile.html" />
         <option value="$PROJECT_DIR$/templates/mysportacle/relationships.html" />
         <option value="$PROJECT_DIR$/leaderboard/models.py" />
         <option value="$PROJECT_DIR$/sportacle/celery.py" />
@@ -126,6 +151,9 @@
         <option value="$PROJECT_DIR$/ranker/ranker.py" />
         <option value="$PROJECT_DIR$/templates/leaderboard/leaderboard.html" />
         <option value="$PROJECT_DIR$/mysportacle/views.py" />
+        <option value="$PROJECT_DIR$/pinnacle_test.py" />
+        <option value="$PROJECT_DIR$/gamelist/tasks.py" />
+        <option value="$PROJECT_DIR$/templates/mysportacle/profile.html" />
       </list>
     </option>
   </component>
@@ -202,6 +230,12 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="leaderboard" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="sportacle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sportacle" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="mysportacle" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -271,19 +305,19 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="tasks" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="pinnacle_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\liamh\Envs\sportacle\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/leaderboard" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sportacle" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leaderboard/tasks.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pinnacle_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -376,19 +410,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.Django:runserver" />
       <item index="1" class="java.lang.String" itemvalue="Python.update_odds" />
-      <item index="2" class="java.lang.String" itemvalue="Python.tasks" />
-      <item index="3" class="java.lang.String" itemvalue="Python.update_leaderboard" />
-      <item index="4" class="java.lang.String" itemvalue="Python.update_ranks" />
-      <item index="5" class="java.lang.String" itemvalue="Python.tests" />
-      <item index="6" class="java.lang.String" itemvalue="Python.update_odds (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.update_leaderboard" />
+      <item index="3" class="java.lang.String" itemvalue="Python.update_ranks" />
+      <item index="4" class="java.lang.String" itemvalue="Python.tests" />
+      <item index="5" class="java.lang.String" itemvalue="Python.update_odds (1)" />
+      <item index="6" class="java.lang.String" itemvalue="Python.pinnacle_test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.update_ranks" />
-        <item index="1" class="java.lang.String" itemvalue="Python.update_leaderboard" />
-        <item index="2" class="java.lang.String" itemvalue="Python.update_odds (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.tests" />
-        <item index="4" class="java.lang.String" itemvalue="Python.tasks" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pinnacle_test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.update_ranks" />
+        <item index="2" class="java.lang.String" itemvalue="Python.update_leaderboard" />
+        <item index="3" class="java.lang.String" itemvalue="Python.update_odds (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -448,14 +482,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/settings/settings.py" />
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/application/faq.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -695,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mysportacle/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="38" column="82" lean-forward="true" selection-start-line="38" selection-start-column="82" selection-end-line="38" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sportacle/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -807,6 +826,36 @@
         <state relative-caret-position="255">
           <caret line="53" column="89" lean-forward="false" selection-start-line="53" selection-start-column="89" selection-end-line="53" selection-end-column="89" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pinnacle_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mysportacle/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="854">
+          <caret line="248" column="75" lean-forward="false" selection-start-line="248" selection-start-column="75" selection-end-line="248" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamelist/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2312">
+          <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
